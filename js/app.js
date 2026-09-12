@@ -55,13 +55,13 @@
         { id: "right", label: "Right", file: "precision-right.png" }
       ],
       ports: [
-        { id: "prec-tb1", kind: "usbc", label: "Thunderbolt 4 (dock upstream)", chip: "TB4", face: "left", box: [13.8, 44.5, 5.6, 11.5], ticket: "Left TB4. This is where the WD19 upstream cable seats. Charging and video ride this hop." },
-        { id: "prec-tb2", kind: "usbc", label: "Thunderbolt 4 (alt)", chip: "TB4 alt", face: "left", box: [19.4, 44.5, 5.6, 11.5], ticket: "Second left TB4. Try this if the first will not charge or show video." },
-        { id: "prec-usbc", kind: "usbc", label: "USB-C (right, DP / PD)", chip: "USB-C", face: "right", box: [72.0, 44.5, 5.4, 11.5], ticket: "Right USB-C. Also charges. Not the usual WD19 seat — left TB4 is the dock hop." },
+        { id: "prec-tb1", kind: "usbc", label: "Thunderbolt 4 (dock upstream)", chip: "TB4", face: "left", box: [14.6, 46.8, 4.6, 8.0], ticket: "Left TB4. This is where the WD19 upstream cable seats. Charging and video ride this hop." },
+        { id: "prec-tb2", kind: "usbc", label: "Thunderbolt 4 (alt)", chip: "TB4 alt", face: "left", box: [20.8, 46.8, 5.0, 8.0], ticket: "Second left TB4. Try this if the first will not charge or show video." },
+        { id: "prec-usbc", kind: "usbc", label: "USB-C (right, DP / PD)", chip: "USB-C", face: "right", box: [69.2, 46.8, 4.8, 8.0], ticket: "Right USB-C. Also charges. Not the usual WD19 seat — left TB4 is the dock hop." },
         { id: "prec-dc", kind: "power", label: "DC-in (USB-C / TB)", chip: "USB-C PD", ticket: "No barrel on the 5570. Off-dock, the slim brick lands on a TB4 or the right USB-C." },
         { id: "prec-hdmi", kind: "video", label: "HDMI out", ticket: "This 5570 has no HDMI. Bypass the dock on a left TB4 or the right USB-C." },
-        { id: "prec-sd", kind: "usb", label: "SD card", chip: "SD", face: "right", box: [78.6, 44.5, 6.8, 11.5], ticket: "SD reader. Not power, not video." },
-        { id: "prec-audio", kind: "audio", label: "3.5 mm combo", chip: "3.5 mm", face: "right", box: [88.0, 44.5, 5.2, 11.5], ticket: "Headset jack on the right side." }
+        { id: "prec-sd", kind: "usb", label: "SD card", chip: "SD", face: "right", box: [75.2, 46.8, 10.8, 8.0], ticket: "SD reader. Not power, not video." },
+        { id: "prec-audio", kind: "audio", label: "3.5 mm combo", chip: "3.5 mm", face: "right", box: [86.8, 46.8, 4.0, 8.0], ticket: "Headset jack on the right side." }
       ]
     },
     wd19: {
@@ -98,13 +98,13 @@
         { id: "rear", label: "Back", file: "monitor-rear.png" }
       ],
       ports: [
-        { id: "mon-ac", kind: "power", label: "IEC AC in", chip: "IEC AC", face: "rear", box: [7.6, 46.4, 12.6, 8.6], ticket: "Monitor power cord. Confirm the rocker / soft-power and the OSD is not in standby." },
-        { id: "mon-hdmi", kind: "video", label: "HDMI 1 in", chip: "HDMI 1", face: "rear", box: [27.4, 46.6, 8.2, 7.6], ticket: "HDMI 1 in. Set OSD source to HDMI 1 if that is the cable in use." },
-        { id: "mon-hdmi2", kind: "video", label: "HDMI 2 in", chip: "HDMI 2", face: "rear", box: [64.2, 46.6, 6.8, 7.6], ticket: "HDMI 2 in. Same cable type from the WD19 HDMI out. OSD source = HDMI 2." },
-        { id: "mon-usbc", kind: "usbc", label: "USB-C (DP / PD)", chip: "USB-C DP/PD", face: "rear", box: [70.6, 46.6, 5.2, 7.6], ticket: "USB-C IN with DP Alt Mode and PD. Video + laptop charge on some desks. Not the WD19 upstream." },
+        { id: "mon-ac", kind: "power", label: "IEC AC in", chip: "IEC AC", face: "rear", box: [5.4, 45.2, 12.2, 8.6], ticket: "Monitor power cord. Confirm the rocker / soft-power and the OSD is not in standby." },
+        { id: "mon-hdmi", kind: "video", label: "HDMI 1 in", chip: "HDMI 1", face: "rear", box: [25.0, 45.4, 9.2, 8.2], ticket: "HDMI 1 in. Set OSD source to HDMI 1 if that is the cable in use." },
+        { id: "mon-hdmi2", kind: "video", label: "HDMI 2 in", chip: "HDMI 2", face: "rear", box: [58.6, 45.4, 6.4, 8.2], ticket: "HDMI 2 in. Same cable type from the WD19 HDMI out. OSD source = HDMI 2." },
+        { id: "mon-usbc", kind: "usbc", label: "USB-C (DP / PD)", chip: "USB-C DP/PD", face: "rear", box: [65.6, 46.0, 4.4, 7.8], ticket: "USB-C IN with DP Alt Mode and PD. Video + laptop charge on some desks. Not the WD19 upstream." },
         { id: "mon-dp", kind: "video", label: "DP in", ticket: "This S3423DWC has no DP in. Use HDMI 1, HDMI 2, or USB-C DP." },
         { id: "mon-usbb", kind: "usb", label: "USB-B upstream", ticket: "Hub uplink to the PC. Needed only if the monitor USB-A ports are dead." },
-        { id: "mon-usba", kind: "usb", label: "USB-A downstream", chip: "USB-A", face: "rear", box: [78.0, 46.2, 11.0, 8.2], ticket: "Monitor hub ports. They stay dead until USB-B / USB-C uplink is seated." }
+        { id: "mon-usba", kind: "usb", label: "USB-A downstream", chip: "USB-A", face: "rear", box: [73.6, 45.4, 13.0, 8.4], ticket: "Monitor hub ports. They stay dead until USB-B / USB-C uplink is seated." }
       ]
     },
     ups: {
