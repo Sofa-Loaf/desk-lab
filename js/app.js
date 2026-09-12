@@ -25,15 +25,20 @@
       short: "OptiPlex",
       role: "SFF / small-form tower. Usual fixed desktop.",
       picker: "OptiPlex",
+      defaultFace: "rear",
+      faces: [
+        { id: "front", label: "Front", file: "optiplex-front.png" },
+        { id: "rear", label: "Back", file: "optiplex-rear.png" }
+      ],
       ports: [
-        { id: "opti-ac", kind: "power", label: "IEC C13 AC in", ticket: "Tower PSU cord. Seat in a battery-backed UPS outlet, not surge-only." },
-        { id: "opti-pwrbtn", kind: "power", label: "Power button", ticket: "Front power. Confirm the PSU switch (if present) is on before this." },
-        { id: "opti-dp", kind: "video", label: "DP out", ticket: "DisplayPort out on the tower. Use if this desk is tower-to-monitor, not docked." },
-        { id: "opti-hdmi", kind: "video", label: "HDMI out", ticket: "HDMI out on the tower. Fallback if the monitor has no DP." },
-        { id: "opti-rj45", kind: "net", label: "RJ45", ticket: "Onboard NIC. Ignore if the client is supposed to be on the WD19 LAN." },
-        { id: "opti-usbc", kind: "usbc", label: "USB-C", ticket: "Chassis USB-C. Not the dock upstream." },
-        { id: "opti-usba", kind: "usb", label: "USB-A", ticket: "Keyboard / mouse / keys. Do not chase video here." },
-        { id: "opti-audio", kind: "audio", label: "Line-out / mic", ticket: "3.5 mm analog. Headset issues are here or on the dock, not the monitor." }
+        { id: "opti-ac", kind: "power", label: "IEC C13 AC in", chip: "IEC C13", face: "rear", box: [14, 52, 11, 16], ticket: "Tower PSU cord. Seat in a battery-backed UPS outlet, not surge-only." },
+        { id: "opti-pwrbtn", kind: "power", label: "Power button", chip: "Power", face: "front", box: [18, 58, 9, 14], ticket: "Front power. Confirm the PSU switch (if present) is on before this." },
+        { id: "opti-dp", kind: "video", label: "DP out", chip: "DP out", face: "rear", box: [29, 60, 8, 9], ticket: "DisplayPort out on the tower. Use if this desk is tower-to-monitor, not docked." },
+        { id: "opti-hdmi", kind: "video", label: "HDMI out", chip: "HDMI out", face: "rear", box: [29, 50, 8, 9], ticket: "HDMI out on the tower. Fallback if the monitor has no DP." },
+        { id: "opti-rj45", kind: "net", label: "RJ45", chip: "RJ45", face: "rear", box: [39, 54, 8, 11], ticket: "Onboard NIC. Ignore if the client is supposed to be on the WD19 LAN." },
+        { id: "opti-usbc", kind: "usbc", label: "USB-C", chip: "USB-C", face: "front", box: [45, 52, 8, 18], ticket: "Chassis USB-C. Not the dock upstream." },
+        { id: "opti-usba", kind: "usb", label: "USB-A", chip: "USB-A", face: "front", box: [32, 52, 10, 14], ticket: "Keyboard / mouse / keys. Do not chase video here." },
+        { id: "opti-audio", kind: "audio", label: "Line-out / mic", chip: "3.5 mm", face: "rear", box: [71, 52, 9, 16], ticket: "3.5 mm analog. Headset issues are here or on the dock, not the monitor." }
       ]
     },
     precision: {
@@ -42,14 +47,19 @@
       short: "Precision",
       role: "Mobile workstation. Dock upstream lands on USB-C / Thunderbolt.",
       picker: "Precision",
+      defaultFace: "left",
+      faces: [
+        { id: "left", label: "Left", file: "precision-left.png" },
+        { id: "right", label: "Right", file: "precision-right.png" }
+      ],
       ports: [
-        { id: "prec-tb1", kind: "usbc", label: "USB-C / TB (dock upstream)", ticket: "Primary Thunderbolt / USB-C. This is where the WD19 upstream cable seats." },
-        { id: "prec-tb2", kind: "usbc", label: "USB-C / TB (alt)", ticket: "Second TB port. Try this if the first will not charge or show video." },
-        { id: "prec-dc", kind: "power", label: "Barrel / DC-in", ticket: "Slim brick on the chassis. Use only if they are off-dock. On-dock, ignore this." },
-        { id: "prec-hdmi", kind: "video", label: "HDMI out", ticket: "Laptop HDMI. Bypass the dock if you need a known-good video path." },
-        { id: "prec-usba", kind: "usb", label: "USB-A", ticket: "Direct USB-A on the chassis." },
-        { id: "prec-sd", kind: "usb", label: "SD card", ticket: "SD reader. Not power, not video." },
-        { id: "prec-audio", kind: "audio", label: "3.5 mm combo", ticket: "Headset jack on the laptop." }
+        { id: "prec-tb1", kind: "usbc", label: "USB-C / TB (dock upstream)", chip: "USB-C / TB", face: "left", box: [18, 56, 11, 14], ticket: "Primary Thunderbolt / USB-C. This is where the WD19 upstream cable seats." },
+        { id: "prec-tb2", kind: "usbc", label: "USB-C / TB (alt)", chip: "USB-C / TB", face: "right", box: [34, 54, 11, 14], ticket: "Second TB port. Try this if the first will not charge or show video." },
+        { id: "prec-dc", kind: "power", label: "Barrel / DC-in", chip: "DC-in", ticket: "Slim brick on the chassis. Use only if they are off-dock. On-dock, ignore this." },
+        { id: "prec-hdmi", kind: "video", label: "HDMI out", chip: "HDMI out", face: "left", box: [50, 54, 15, 14], ticket: "Laptop HDMI. Bypass the dock if you need a known-good video path." },
+        { id: "prec-usba", kind: "usb", label: "USB-A", chip: "USB-A", face: "left", box: [34, 56, 11, 14], ticket: "Direct USB-A on the chassis." },
+        { id: "prec-sd", kind: "usb", label: "SD card", chip: "SD", face: "right", box: [48, 54, 13, 14], ticket: "SD reader. Not power, not video." },
+        { id: "prec-audio", kind: "audio", label: "3.5 mm combo", chip: "3.5 mm", face: "left", box: [70, 56, 9, 14], ticket: "Headset jack on the laptop." }
       ]
     },
     wd19: {
@@ -58,16 +68,21 @@
       short: "WD19",
       role: "Dell WD19 / WD19TBS. Brick on barrel/DC-in. Laptop on USB-C upstream.",
       picker: "WD19",
+      defaultFace: "rear",
+      faces: [
+        { id: "front", label: "Front", file: "wd19-front.png" },
+        { id: "rear", label: "Back", file: "wd19-rear.png" }
+      ],
       ports: [
-        { id: "wd19-dc", kind: "power", label: "Barrel / DC-in", ticket: "That's power on the WD19 — pull that one. 180W brick. Round jack. Not USB-C." },
-        { id: "wd19-upstream", kind: "usbc", label: "USB-C upstream (to laptop)", ticket: "Thick cable, dock → Precision TB port. Charging and video ride this hop." },
-        { id: "wd19-dp1", kind: "video", label: "DP out (to monitor)", ticket: "DisplayPort out on the dock. Lands on monitor DP in." },
-        { id: "wd19-dp2", kind: "video", label: "DP out 2", ticket: "Second DP. Dual-display desks use this plus DP 1 or HDMI." },
-        { id: "wd19-hdmi", kind: "video", label: "HDMI out (to monitor)", ticket: "HDMI out on the dock. Match the monitor HDMI in and the monitor source." },
-        { id: "wd19-rj45", kind: "net", label: "RJ45", ticket: "Dock NIC. Confirm the drop is here if the ticket is 'no LAN on dock'." },
-        { id: "wd19-usbc", kind: "usbc", label: "USB-C downstream", ticket: "Peripherals only. Will not power the dock or the laptop." },
-        { id: "wd19-usba", kind: "usb", label: "USB-A", ticket: "Keyboard / mouse / keys on the dock." },
-        { id: "wd19-audio", kind: "audio", label: "3.5 mm", ticket: "Dock analog audio." }
+        { id: "wd19-dc", kind: "power", label: "Barrel / DC-in", chip: "Barrel/DC-in", face: "rear", box: [13, 37, 8, 12], ticket: "That's power on the WD19 — pull that one. 180W brick. Round jack. Not USB-C." },
+        { id: "wd19-upstream", kind: "usbc", label: "USB-C upstream (to laptop)", chip: "USB-C up", face: "rear", box: [21, 41, 7, 10], ticket: "Thick cable, dock → Precision TB port. Charging and video ride this hop." },
+        { id: "wd19-dp1", kind: "video", label: "DP out (to monitor)", chip: "DP out", face: "rear", box: [30, 34, 9, 9], ticket: "DisplayPort out on the dock. Lands on monitor DP in." },
+        { id: "wd19-dp2", kind: "video", label: "DP out 2", chip: "DP 2", face: "rear", box: [30, 45, 9, 9], ticket: "Second DP. Dual-display desks use this plus DP 1 or HDMI." },
+        { id: "wd19-hdmi", kind: "video", label: "HDMI out (to monitor)", chip: "HDMI out", face: "rear", box: [42, 43, 9, 10], ticket: "HDMI out on the dock. Match the monitor HDMI in and the monitor source." },
+        { id: "wd19-rj45", kind: "net", label: "RJ45", chip: "RJ45", face: "rear", box: [53, 39, 8, 12], ticket: "Dock NIC. Confirm the drop is here if the ticket is 'no LAN on dock'." },
+        { id: "wd19-usbc", kind: "usbc", label: "USB-C downstream", chip: "USB-C down", face: "front", box: [37, 47, 9, 12], ticket: "Peripherals only. Will not power the dock or the laptop." },
+        { id: "wd19-usba", kind: "usb", label: "USB-A", chip: "USB-A", face: "rear", box: [63, 36, 9, 18], ticket: "Keyboard / mouse / keys on the dock." },
+        { id: "wd19-audio", kind: "audio", label: "3.5 mm", chip: "3.5 mm", face: "rear", box: [73, 45, 6, 10], ticket: "Dock analog audio." }
       ]
     },
     monitor: {
@@ -76,11 +91,15 @@
       short: "Monitor",
       role: "External display. Video is an IN. Power is IEC AC.",
       picker: "Monitor",
+      defaultFace: "rear",
+      faces: [
+        { id: "rear", label: "Back", file: "monitor-rear.png" }
+      ],
       ports: [
-        { id: "mon-ac", kind: "power", label: "IEC AC in", ticket: "Monitor power cord. Confirm the rocker / soft-power and the OSD is not in standby." },
-        { id: "mon-dp", kind: "video", label: "DP in", ticket: "DisplayPort in. Must match a DP out on the WD19 or the OptiPlex." },
-        { id: "mon-hdmi", kind: "video", label: "HDMI in", ticket: "HDMI in. Set OSD source to HDMI if that is the cable in use." },
-        { id: "mon-usbc", kind: "usbc", label: "USB-C (video + power)", ticket: "USB-C video on some P-series. Not the WD19 upstream." },
+        { id: "mon-ac", kind: "power", label: "IEC AC in", chip: "IEC AC", face: "rear", box: [16, 34, 16, 22], ticket: "Monitor power cord. Confirm the rocker / soft-power and the OSD is not in standby." },
+        { id: "mon-dp", kind: "video", label: "DP in", chip: "DP in", face: "rear", box: [42, 36, 12, 18], ticket: "DisplayPort in. Must match a DP out on the WD19 or the OptiPlex." },
+        { id: "mon-hdmi", kind: "video", label: "HDMI in", chip: "HDMI in", face: "rear", box: [56, 36, 12, 18], ticket: "HDMI in. Set OSD source to HDMI if that is the cable in use." },
+        { id: "mon-usbc", kind: "usbc", label: "USB-C (video + power)", chip: "USB-C", face: "rear", box: [70, 36, 10, 18], ticket: "USB-C video on some P-series. Not the WD19 upstream." },
         { id: "mon-usbb", kind: "usb", label: "USB-B upstream", ticket: "Legacy hub uplink to the PC. Needed only if hub ports on the monitor are dead." },
         { id: "mon-usba", kind: "usb", label: "USB-A downstream", ticket: "Monitor hub ports. They stay dead until USB-B / USB-C uplink is seated." }
       ]
@@ -91,11 +110,15 @@
       short: "UPS",
       role: "Battery backup under the desk. Switch + battery-backed outlets first.",
       picker: "UPS",
+      defaultFace: "front",
+      faces: [
+        { id: "front", label: "Front", file: "ups-front.png" }
+      ],
       ports: [
         { id: "ups-acin", kind: "power", label: "AC in (wall)", ticket: "UPS line cord to the wall. If the wall is dead, the UPS is a battery with a clock." },
-        { id: "ups-switch", kind: "power", label: "Power switch", ticket: "Master switch. Many units sit in standby with no output until this is on." },
-        { id: "ups-out-batt", kind: "power", label: "AC out (battery-backed)", ticket: "Battery-backed bank. Tower PSU and WD19 brick go here." },
-        { id: "ups-out-dock", kind: "power", label: "AC out (dock brick)", ticket: "Second battery-backed outlet. WD19 180W brick — not a surge-only tap." },
+        { id: "ups-switch", kind: "power", label: "Power switch", chip: "Switch", face: "front", box: [11, 22, 11, 16], ticket: "Master switch. Many units sit in standby with no output until this is on." },
+        { id: "ups-out-batt", kind: "power", label: "AC out (battery-backed)", chip: "Battery-backed", face: "front", box: [36, 28, 34, 42], ticket: "Battery-backed bank. Tower PSU and WD19 brick go here." },
+        { id: "ups-out-dock", kind: "power", label: "AC out (dock brick)", chip: "Dock brick", face: "front", box: [70, 28, 18, 42], ticket: "Second battery-backed outlet. WD19 180W brick — not a surge-only tap." },
         { id: "ups-out-surge", kind: "power", label: "AC out (surge-only)", ticket: "Surge-only. Do not park the tower or the dock brick here." },
         { id: "ups-usb", kind: "usb", label: "USB-B management", ticket: "Optional NUT / vendor agent. Not required for AC output." }
       ]
@@ -110,6 +133,7 @@
       needs: ["wd19"],
       device: "wd19",
       port: "wd19-dc",
+      face: "rear",
       ports: ["wd19-dc"],
       cables: ["dock-brick"],
       coach: "That's power on the WD19 — pull that one. Barrel/DC-in — the brick, not USB-C. Wait 10s. Reseat.",
@@ -130,6 +154,7 @@
       device: "wd19",
       fallbackDevice: "monitor",
       port: "wd19-dp1",
+      face: "rear",
       ports: ["wd19-dp1", "wd19-hdmi", "mon-dp", "mon-hdmi", "prec-hdmi", "opti-dp"],
       cables: ["dock-dp", "dock-hdmi"],
       coach: "Video leaves the dock. Trace DP or HDMI from WD19 out to the monitor IN. Set the monitor source to match.",
@@ -149,6 +174,7 @@
       needs: ["wd19", "precision"],
       device: "wd19",
       port: "wd19-upstream",
+      face: "rear",
       ports: ["wd19-upstream", "prec-tb1", "prec-tb2", "wd19-dc"],
       cables: ["dock-upstream"],
       coach: "Charging rides USB-C upstream. Reseat the thick cable at the dock and at the Precision TB port.",
@@ -167,6 +193,7 @@
       needs: ["ups"],
       device: "ups",
       port: "ups-switch",
+      face: "front",
       ports: ["ups-switch", "ups-out-batt", "ups-out-dock", "opti-ac", "wd19-dc"],
       cables: ["ups-tower", "ups-dock"],
       coach: "Whole desk dark. UPS switch first. Tower and dock brick go in battery-backed outlets, not surge-only.",
@@ -302,6 +329,38 @@
     return device.ports[0] ? device.ports[0].id : null;
   }
 
+  function faceById(device, faceId) {
+    if (!device || !device.faces) return null;
+    for (var i = 0; i < device.faces.length; i += 1) {
+      if (device.faces[i].id === faceId) return device.faces[i];
+    }
+    return null;
+  }
+
+  function defaultFace(device) {
+    if (!device) return "";
+    if (device.defaultFace && faceById(device, device.defaultFace)) return device.defaultFace;
+    return device.faces && device.faces[0] ? device.faces[0].id : "";
+  }
+
+  function resolveFace(device, portId, faceId) {
+    if (!device) return "";
+    var port = portId ? portById(device, portId) : null;
+    if (port && port.face && faceById(device, port.face)) return port.face;
+    if (faceId && faceById(device, faceId)) return faceId;
+    return defaultFace(device);
+  }
+
+  function resolvePlaybookFace(playbook, present) {
+    if (!playbook) return "";
+    var portId = resolvePlaybookPort(playbook, present);
+    var found = portId ? findPort(portId) : null;
+    if (found && found.port.face) return found.port.face;
+    if (playbook.face) return playbook.face;
+    var deviceId = resolvePlaybookDevice(playbook, present);
+    return defaultFace(deviceId ? DEVICES[deviceId] : null);
+  }
+
   function ticketNote(state) {
     var present = normalizePresent(state && state.present);
     var desk = presentToList(present)
@@ -394,6 +453,7 @@
       playbookId: "",
       deviceId: "",
       portId: "",
+      faceId: "",
       writingHash: false
     };
 
@@ -406,6 +466,11 @@
     var stage = qs(root, "[data-stage]");
     var copyBtn = qs(root, "[data-copy-ticket]");
     var copyStatus = qs(root, "[data-copy-status]");
+    var assetBase = (root.getAttribute("data-asset-base") || "assets/desk-lab").replace(/\/$/, "");
+
+    function assetUrl(file) {
+      return assetBase + "/" + file;
+    }
 
     function currentPlaybook() {
       return playbookById(state.playbookId);
@@ -423,23 +488,140 @@
     function applyPresentToDom() {
       DEVICE_ORDER.forEach(function (id) {
         var on = !!state.present[id];
-        qsa(root, '[data-device="' + id + '"]').forEach(function (el) {
-          el.classList.toggle("is-absent", !on);
-          el.setAttribute("aria-hidden", on ? "false" : "true");
-          if (el.hasAttribute("tabindex")) el.tabIndex = on ? 0 : -1;
-          if (!on) el.classList.remove("is-selected");
-        });
         qsa(picker, 'input[value="' + id + '"]').forEach(function (input) {
           input.checked = on;
         });
       });
-      qsa(root, "[data-needs]").forEach(function (el) {
-        var needs = el.getAttribute("data-needs").split(",").filter(Boolean);
-        var on = needs.every(function (id) {
+    }
+
+    function thumbFile(device) {
+      var face = faceById(device, defaultFace(device)) || (device.faces && device.faces[0]);
+      return face ? face.file : "";
+    }
+
+    function renderDeviceStrip() {
+      var strip = qs(root, "[data-device-strip]");
+      if (!strip) return;
+      strip.innerHTML = DEVICE_ORDER.filter(function (id) {
+        return state.present[id];
+      })
+        .map(function (id) {
+          var device = DEVICES[id];
+          var selected = state.deviceId === id;
+          var file = thumbFile(device);
+          return (
+            '<button type="button" class="device-card' +
+            (selected ? " is-selected" : "") +
+            '" data-device="' +
+            id +
+            '" aria-pressed="' +
+            (selected ? "true" : "false") +
+            '">' +
+            (file ? '<img src="' + assetUrl(file) + '" alt="">' : "") +
+            "<span>" +
+            device.short +
+            "</span></button>"
+          );
+        })
+        .join("");
+    }
+
+    function renderPhotoPanel() {
+      var panel = qs(root, "[data-photo-panel]");
+      if (!panel) return;
+      var device = deviceById(state.deviceId);
+      if (!device || !state.present[device.id]) {
+        var cards = DEVICE_ORDER.filter(function (id) {
           return state.present[id];
-        });
-        el.classList.toggle("is-absent", !on);
-      });
+        })
+          .map(function (id) {
+            var item = DEVICES[id];
+            var file = thumbFile(item);
+            return (
+              '<button type="button" class="gallery-card" data-device="' +
+              id +
+              '">' +
+              (file ? '<img src="' + assetUrl(file) + '" alt="' + item.name + '">' : "") +
+              "<span>" +
+              item.short +
+              "</span></button>"
+            );
+          })
+          .join("");
+        panel.innerHTML = cards
+          ? '<div class="photo-gallery">' + cards + "</div>"
+          : '<p class="photo-empty">Check a box. Then click the photo.</p>';
+        return;
+      }
+
+      var faceId = resolveFace(device, state.portId, state.faceId);
+      var face = faceById(device, faceId) || device.faces[0];
+      var playbook = currentPlaybook();
+      var hotPorts = playbook ? playbook.ports : [];
+      var tabs = device.faces
+        .map(function (item) {
+          var active = item.id === face.id;
+          return (
+            '<button type="button" class="face-tab' +
+            (active ? " is-active" : "") +
+            '" data-face="' +
+            item.id +
+            '" aria-selected="' +
+            (active ? "true" : "false") +
+            '">' +
+            item.label +
+            "</button>"
+          );
+        })
+        .join("");
+      var hotspots = device.ports
+        .filter(function (port) {
+          return port.face === face.id && port.box && port.box.length === 4;
+        })
+        .map(function (port) {
+          var hot = hotPorts.indexOf(port.id) !== -1;
+          var selected = state.portId === port.id;
+          var box = port.box;
+          return (
+            '<button type="button" class="hotspot kind-' +
+            port.kind +
+            (hot ? " is-hot" : "") +
+            (selected ? " is-selected" : "") +
+            '" data-port="' +
+            port.id +
+            '" style="left:' +
+            box[0] +
+            "%;top:" +
+            box[1] +
+            "%;width:" +
+            box[2] +
+            "%;height:" +
+            box[3] +
+            '%" aria-label="' +
+            port.label +
+            '"><span class="hotspot-label">' +
+            (port.chip || port.label) +
+            "</span></button>"
+          );
+        })
+        .join("");
+
+      panel.innerHTML =
+        '<div class="photo-toolbar"><p class="photo-title">' +
+        device.name +
+        " · " +
+        face.label +
+        '</p><div class="face-tabs" role="tablist" aria-label="Device face">' +
+        tabs +
+        '</div></div><div class="photo-stage"><img src="' +
+        assetUrl(face.file) +
+        '" alt="' +
+        device.name +
+        " " +
+        face.label +
+        '"><div class="hotspot-layer">' +
+        hotspots +
+        "</div></div>";
     }
 
     function renderPlaybooks() {
@@ -472,7 +654,7 @@
     function defaultCoach() {
       return {
         kicker: "On the call",
-        text: "Toggle what is on this desk. Click a device. Ports are ticket labels. Or start a playbook and read the coach line.",
+        text: "Toggle what is on this desk. Click a photo. Ports sit on the real jacks. Or start a playbook and read the coach line.",
         ask: ""
       };
     }
@@ -513,7 +695,7 @@
         detail.innerHTML =
           '<p class="detail-kicker">Device</p>' +
           "<h2>Nothing selected</h2>" +
-          "<p>Click a box on the desk. Ports are named the way they go on the ticket: barrel/DC-in, USB-C upstream, DP out, UPS AC out.</p>";
+          "<p>Click a device photo. Front/Back (or Left/Right) tabs. Ticket labels sit on the real ports: barrel/DC-in, USB-C upstream, DP out, UPS AC out.</p>";
         return;
       }
 
@@ -598,25 +780,25 @@
     function syncHighlights() {
       var playbook = currentPlaybook();
       var hotPorts = playbook ? playbook.ports : [];
-      var hotCables = playbook ? playbook.cables : [];
       qsa(root, "[data-port]").forEach(function (el) {
         var id = el.getAttribute("data-port");
         el.classList.toggle("is-hot", hotPorts.indexOf(id) !== -1);
         el.classList.toggle("is-selected", state.portId === id);
       });
-      qsa(root, "[data-cable]").forEach(function (el) {
-        el.classList.toggle("is-hot", hotCables.indexOf(el.getAttribute("data-cable")) !== -1);
-      });
-      qsa(root, ".desk-unit").forEach(function (el) {
+      qsa(root, "[data-device]").forEach(function (el) {
         var id = el.getAttribute("data-device");
         el.classList.toggle("is-selected", id === state.deviceId && !!state.present[id]);
-        el.setAttribute("aria-pressed", id === state.deviceId && !!state.present[id] ? "true" : "false");
+        if (el.hasAttribute("aria-pressed")) {
+          el.setAttribute("aria-pressed", id === state.deviceId && !!state.present[id] ? "true" : "false");
+        }
       });
     }
 
     function render() {
       applyPresentToDom();
       renderPlaybooks();
+      renderDeviceStrip();
+      renderPhotoPanel();
       renderCoach();
       renderDetail();
       syncHighlights();
@@ -627,8 +809,10 @@
       state.deviceId = id;
       if (portId && portById(DEVICES[id], portId)) {
         state.portId = portId;
+        state.faceId = resolveFace(DEVICES[id], portId, "");
       } else if (!portById(DEVICES[id], state.portId)) {
         state.portId = "";
+        state.faceId = defaultFace(DEVICES[id]);
       }
       render();
       writeHash();
@@ -639,8 +823,20 @@
       if (!found || !state.present[found.device.id]) return;
       state.deviceId = found.device.id;
       state.portId = found.port.id;
+      state.faceId = resolveFace(found.device, found.port.id, found.port.face);
       render();
       writeHash();
+    }
+
+    function selectFace(faceId) {
+      var device = deviceById(state.deviceId);
+      if (!device || !faceById(device, faceId)) return;
+      state.faceId = faceId;
+      if (state.portId) {
+        var port = portById(device, state.portId);
+        if (port && port.face && port.face !== faceId) state.portId = "";
+      }
+      render();
     }
 
     function clearPlaybook() {
@@ -659,6 +855,7 @@
       state.playbookId = playbook.id;
       state.deviceId = resolvePlaybookDevice(playbook, state.present) || "";
       state.portId = resolvePlaybookPort(playbook, state.present) || "";
+      state.faceId = resolvePlaybookFace(playbook, state.present) || "";
       render();
       writeHash();
       if (stage) {
@@ -672,6 +869,7 @@
       if (!state.present[id] && state.deviceId === id) {
         state.deviceId = "";
         state.portId = "";
+        state.faceId = "";
       }
       var playbook = currentPlaybook();
       if (playbook && !playbookIsAvailable(playbook, state.present)) {
@@ -703,6 +901,11 @@
         state.portId = resolvePlaybookPort(playbookById(state.playbookId), state.present) || "";
       } else {
         state.portId = "";
+      }
+      if (state.deviceId) {
+        state.faceId = resolveFace(DEVICES[state.deviceId], state.portId, state.faceId);
+      } else {
+        state.faceId = "";
       }
       render();
     }
@@ -762,16 +965,22 @@
           return;
         }
       }
-      var unit = event.target.closest(".desk-unit[data-device]");
-      if (unit && root.contains(unit)) {
+      var faceBtn = event.target.closest("[data-face]");
+      if (faceBtn && root.contains(faceBtn)) {
+        event.preventDefault();
+        selectFace(faceBtn.getAttribute("data-face"));
+        return;
+      }
+      var unit = event.target.closest("[data-device]");
+      if (unit && root.contains(unit) && !unit.closest("[data-desk-picker]")) {
         var id = unit.getAttribute("data-device");
         if (state.present[id]) selectDevice(id);
       }
     });
 
     root.addEventListener("keydown", function (event) {
-      var unit = event.target.closest(".desk-unit[data-device]");
-      if (!unit || !root.contains(unit)) return;
+      var unit = event.target.closest("[data-device]");
+      if (!unit || !root.contains(unit) || unit.closest("[data-desk-picker]")) return;
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
         var id = unit.getAttribute("data-device");
@@ -800,7 +1009,8 @@
       setPresent: setPresent,
       runPlaybook: runPlaybook,
       selectDevice: selectDevice,
-      selectPort: selectPort
+      selectPort: selectPort,
+      selectFace: selectFace
     };
   }
 
@@ -818,6 +1028,9 @@
     visiblePlaybooks: visiblePlaybooks,
     resolvePlaybookDevice: resolvePlaybookDevice,
     resolvePlaybookPort: resolvePlaybookPort,
+    resolvePlaybookFace: resolvePlaybookFace,
+    resolveFace: resolveFace,
+    faceById: faceById,
     ticketNote: ticketNote,
     parseHash: parseHash,
     buildHash: buildHash,

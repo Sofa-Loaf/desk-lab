@@ -41,6 +41,24 @@ test("ticket note is short and ticket-shaped", () => {
   assert.match(note, /USB-C upstream/);
 });
 
+test("playbook coach lands on a real photo hotspot", () => {
+  const present = DeskLab.defaultPresent();
+  const cases = [
+    ["dock-power", "wd19-dc", "rear"],
+    ["no-display", "wd19-dp1", "rear"],
+    ["no-charge", "wd19-upstream", "rear"],
+    ["dead-desk", "ups-switch", "front"]
+  ];
+  cases.forEach(([id, portId, face]) => {
+    const playbook = DeskLab.playbookById(id);
+    assert.equal(DeskLab.resolvePlaybookPort(playbook, present), portId);
+    assert.equal(DeskLab.resolvePlaybookFace(playbook, present), face);
+    const found = DeskLab.DEVICES[playbook.device].ports.find((port) => port.id === portId);
+    assert.equal(found.face, face);
+    assert.equal(found.box.length, 4);
+  });
+});
+
 test("hash round-trips desk + playbook", () => {
   const hash = DeskLab.buildHash({
     present: { optiplex: false, precision: true, wd19: true, monitor: true, ups: false },

@@ -1,6 +1,6 @@
 # GitHub Pages
 
-Desk Lab is a static site: `index.html`, `css/`, and `js/` at the repository root.
+Desk Lab is a static site: `index.html`, `css/`, `js/`, and `assets/desk-lab/` at the repository root.
 
 ## Enable Pages
 
@@ -20,6 +20,7 @@ If Pages is not enabled, the call sheet still works by opening `index.html` thro
 - `index.html`
 - `css/`
 - `js/`
+- `assets/desk-lab/`
 - `LICENSE`
 - `README.md`
 - `.nojekyll`

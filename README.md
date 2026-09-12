@@ -4,14 +4,14 @@ Free, client-side **MSP call sheet** for Dell desks.
 
 ICP: MSP techs on remote or onsite calls. Client has some mix of OptiPlex, Precision, WD19, Dell monitor, UPS. Not a consumer toy.
 
-Toggle **what’s on this client’s desk**. Click a box. Ports are ticket labels: barrel/DC-in, USB-C upstream, DP out, UPS AC out. Playbooks are the script — you read, they touch the jack.
+Toggle **what’s on this client’s desk**. Open the product photo. Front/Back (or Left/Right) tabs. Ports sit on the real jacks: barrel/DC-in, USB-C upstream, DP out, UPS AC out. Playbooks are the script — you read, they touch the jack.
 
 - No power on dock → WD19 barrel/DC-in (the brick, not USB-C). Coach: “That’s power on the WD19 — pull that one.”
 - No display → DP/HDMI from dock to monitor IN
 - Laptop not charging on dock → USB-C upstream
 - Dead desk → UPS switch + battery-backed outlets
 
-No account. No backend. No Stripe. Labels beat photorealism.
+No account. No backend. No Stripe. Photos are the desk.
 
 **Live (28to3 mirror):** https://28to3.me/apps/desk-lab.html
 
@@ -21,7 +21,7 @@ No account. No backend. No Stripe. Labels beat photorealism.
 
 1. Open `index.html` via a local static server, Pages, or the 28to3 mirror.
 2. Check the boxes for what is actually on the desk.
-3. Start a playbook and read the coach line aloud. Or click a device and a port.
+3. Click a device photo. Use Front/Back or Left/Right. Or start a playbook and read the coach line — the hotspot on the photo is the jack.
 4. **Copy ticket note** if you want the desk + playbook + port in the ticket.
 
 Hash is shareable: `#desk=precision,wd19,monitor&playbook=dock-power&device=wd19&port=wd19-dc`.
@@ -30,9 +30,10 @@ Hash is shareable: `#desk=precision,wd19,monitor&playbook=dock-power&device=wd19
 
 Same cycle as this repo:
 
-- Lab page → `apps/desk-lab.html` (28to3 chrome around the same picker / SVG / playbooks)
+- Lab page → `apps/desk-lab.html` (28to3 chrome around the same picker / photos / playbooks)
 - `css/app.css` core → `apps/desk-lab.css`
 - `js/app.js` → `apps/desk-lab.js`
+- Product photos → `apps/assets/desk-lab/`
 
 No build step. No npm install. Do not invent Stripe for this tool.
 
