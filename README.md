@@ -7,11 +7,11 @@ ICP: MSP techs on remote or onsite calls. Client has some mix of OptiPlex, Preci
 Toggle **what’s on this client’s desk**. Open the product photo. Front/Back (or Left/Right) tabs. Ports sit on the real jacks: barrel/DC-in, USB-C upstream, DP out, UPS AC out. Playbooks are the script — you read, they touch the jack.
 
 - No power on dock → WD19 barrel/DC-in (the brick, not USB-C). Coach: “That’s power on the WD19 — pull that one.”
-- No display → DP/HDMI from dock to monitor IN
-- Laptop not charging on dock → USB-C upstream
-- Dead desk → UPS switch + battery-backed outlets
+- No display → WD19 DP/HDMI out to monitor HDMI 1 / HDMI 2 / USB-C DP
+- Laptop not charging on dock → WD19 front USB-C upstream
+- Dead desk → UPS front switch + rear BATTERY BACKUP outlets (not surge-only)
 
-No account. No backend. No Stripe. Photos are the desk.
+No account. No backend. No Stripe. Photos are the desk. Product shots are real hardware (WD19 Commons K20A-5812/5814, OptiPlex 3080 Micro Support figures, Precision 5570 setup PDF, S3423DWC Commons port bay, APC Back-UPS XS 1000 Commons). Attribution: [assets/desk-lab/README.md](assets/desk-lab/README.md).
 
 **Live (28to3 mirror):** https://28to3.me/apps/desk-lab.html
 

@@ -21,9 +21,9 @@
   var DEVICES = {
     optiplex: {
       id: "optiplex",
-      name: "Dell OptiPlex",
+      name: "Dell OptiPlex 3080 Micro",
       short: "OptiPlex",
-      role: "SFF / small-form tower. Usual fixed desktop.",
+      role: "3080 Micro. Brick on barrel DC-in. Video is HDMI / DP on the back.",
       picker: "OptiPlex",
       defaultFace: "rear",
       faces: [
@@ -31,21 +31,23 @@
         { id: "rear", label: "Back", file: "optiplex-rear.png" }
       ],
       ports: [
-        { id: "opti-ac", kind: "power", label: "IEC C13 AC in", chip: "IEC C13", face: "rear", box: [36, 52, 11, 16], ticket: "Tower PSU cord. Seat in a battery-backed UPS outlet, not surge-only." },
-        { id: "opti-pwrbtn", kind: "power", label: "Power button", chip: "Power", face: "front", box: [20, 64, 7, 12], ticket: "Front power. Confirm the PSU switch (if present) is on before this." },
-        { id: "opti-dp", kind: "video", label: "DP out", chip: "DP out", face: "rear", box: [47, 59, 6, 8], ticket: "DisplayPort out on the tower. Use if this desk is tower-to-monitor, not docked." },
-        { id: "opti-hdmi", kind: "video", label: "HDMI out", chip: "HDMI out", face: "rear", box: [47, 50, 6, 8], ticket: "HDMI out on the tower. Fallback if the monitor has no DP." },
-        { id: "opti-rj45", kind: "net", label: "RJ45", chip: "RJ45", face: "rear", box: [53, 54, 6, 10], ticket: "Onboard NIC. Ignore if the client is supposed to be on the WD19 LAN." },
-        { id: "opti-usbc", kind: "usbc", label: "USB-C", chip: "USB-C", face: "front", box: [50, 64, 16, 12], ticket: "Chassis USB-C. Not the dock upstream." },
-        { id: "opti-usba", kind: "usb", label: "USB-A", chip: "USB-A", face: "front", box: [31, 62, 10, 14], ticket: "Keyboard / mouse / keys. Do not chase video here." },
-        { id: "opti-audio", kind: "audio", label: "Line-out / mic", chip: "3.5 mm", face: "rear", box: [80, 48, 10, 18], ticket: "3.5 mm analog. Headset issues are here or on the dock, not the monitor." }
+        { id: "opti-ac", kind: "power", label: "Barrel / DC-in", chip: "DC-in", face: "rear", box: [51.0, 81.5, 6.4, 6.0], ticket: "That's the Micro brick — round DC-in on the back, not IEC. Seat that brick in a battery-backed UPS outlet, not surge-only." },
+        { id: "opti-pwrbtn", kind: "power", label: "Power button", chip: "Power", face: "front", box: [42.4, 8.0, 7.4, 6.2], ticket: "Front power. Confirm the brick is seated in DC-in before you chase this." },
+        { id: "opti-dp", kind: "video", label: "DP out", chip: "DP out", face: "rear", box: [51.2, 58.5, 6.8, 6.4], ticket: "DisplayPort out on the Micro. Use if this desk is tower-to-monitor, not docked." },
+        { id: "opti-hdmi", kind: "video", label: "HDMI out", chip: "HDMI out", face: "rear", box: [42.0, 19.4, 6.6, 5.6], ticket: "HDMI 1.4 on the Micro. Fallback if the monitor has no DP." },
+        { id: "opti-hdmi2", kind: "video", label: "HDMI out 2 (optional)", chip: "HDMI 2", face: "rear", box: [51.2, 67.8, 6.8, 6.8], ticket: "Lower HDMI (optional video module). Same rule: match the monitor IN." },
+        { id: "opti-rj45", kind: "net", label: "RJ45", chip: "RJ45", face: "rear", box: [50.0, 19.4, 6.2, 5.8], ticket: "Onboard NIC. Ignore if the client is supposed to be on the WD19 LAN." },
+        { id: "opti-usbc", kind: "usbc", label: "USB-C", chip: "USB-C", face: "rear", box: [56.2, 38.5, 4.4, 6.0], ticket: "Chassis USB-C on the back. Not the dock upstream." },
+        { id: "opti-usba", kind: "usb", label: "USB-A", chip: "USB-A", face: "front", box: [42.0, 31.8, 9.2, 13.8], ticket: "Front USB-A. Keyboard / mouse / keys. Do not chase video here." },
+        { id: "opti-usba-rear", kind: "usb", label: "USB-A (rear)", chip: "USB-A rear", face: "rear", box: [41.8, 28.2, 12.8, 16.4], ticket: "Rear USB-A cluster. Peripherals only." },
+        { id: "opti-audio", kind: "audio", label: "Universal audio", chip: "3.5 mm", face: "front", box: [43.0, 20.8, 5.8, 5.0], ticket: "Front headset jack. Headset issues are here or on the dock, not the monitor." }
       ]
     },
     precision: {
       id: "precision",
-      name: "Precision laptop",
+      name: "Precision 5570",
       short: "Precision",
-      role: "Mobile workstation. Dock upstream lands on USB-C / Thunderbolt.",
+      role: "5570. Two Thunderbolt 4 on the left. Right side is USB-C / SD / headset. No barrel.",
       picker: "Precision",
       defaultFace: "left",
       faces: [
@@ -53,13 +55,13 @@
         { id: "right", label: "Right", file: "precision-right.png" }
       ],
       ports: [
-        { id: "prec-tb1", kind: "usbc", label: "USB-C / TB (dock upstream)", chip: "USB-C / TB", face: "left", box: [20, 54, 8, 12], ticket: "Primary Thunderbolt / USB-C. This is where the WD19 upstream cable seats." },
-        { id: "prec-tb2", kind: "usbc", label: "USB-C / TB (alt)", chip: "USB-C / TB", face: "right", box: [27, 50, 10, 14], ticket: "Second TB port. Try this if the first will not charge or show video." },
-        { id: "prec-dc", kind: "power", label: "Barrel / DC-in", chip: "DC-in", ticket: "Slim brick on the chassis. Use only if they are off-dock. On-dock, ignore this. This Precision charges on the TB USB-C." },
-        { id: "prec-hdmi", kind: "video", label: "HDMI out", chip: "HDMI out", face: "left", box: [42, 52, 14, 14], ticket: "Laptop HDMI. Bypass the dock if you need a known-good video path." },
-        { id: "prec-usba", kind: "usb", label: "USB-A", chip: "USB-A", face: "left", box: [30, 54, 10, 12], ticket: "Direct USB-A on the chassis." },
-        { id: "prec-sd", kind: "usb", label: "SD card", chip: "SD", face: "right", box: [42, 52, 16, 10], ticket: "SD reader. Not power, not video." },
-        { id: "prec-audio", kind: "audio", label: "3.5 mm combo", chip: "3.5 mm", face: "left", box: [62, 54, 8, 12], ticket: "Headset jack on the laptop." }
+        { id: "prec-tb1", kind: "usbc", label: "Thunderbolt 4 (dock upstream)", chip: "TB4", face: "left", box: [14.6, 46.8, 4.6, 8.0], ticket: "Left TB4. This is where the WD19 upstream cable seats. Charging and video ride this hop." },
+        { id: "prec-tb2", kind: "usbc", label: "Thunderbolt 4 (alt)", chip: "TB4 alt", face: "left", box: [20.8, 46.8, 5.0, 8.0], ticket: "Second left TB4. Try this if the first will not charge or show video." },
+        { id: "prec-usbc", kind: "usbc", label: "USB-C (right, DP / PD)", chip: "USB-C", face: "right", box: [69.2, 46.8, 4.8, 8.0], ticket: "Right USB-C. Also charges. Not the usual WD19 seat — left TB4 is the dock hop." },
+        { id: "prec-dc", kind: "power", label: "DC-in (USB-C / TB)", chip: "USB-C PD", ticket: "No barrel on the 5570. Off-dock, the slim brick lands on a TB4 or the right USB-C." },
+        { id: "prec-hdmi", kind: "video", label: "HDMI out", ticket: "This 5570 has no HDMI. Bypass the dock on a left TB4 or the right USB-C." },
+        { id: "prec-sd", kind: "usb", label: "SD card", chip: "SD", face: "right", box: [75.2, 46.8, 10.8, 8.0], ticket: "SD reader. Not power, not video." },
+        { id: "prec-audio", kind: "audio", label: "3.5 mm combo", chip: "3.5 mm", face: "right", box: [86.8, 46.8, 4.0, 8.0], ticket: "Headset jack on the right side." }
       ]
     },
     wd19: {
@@ -74,52 +76,54 @@
         { id: "rear", label: "Back", file: "wd19-rear.png" }
       ],
       ports: [
-        { id: "wd19-dc", kind: "power", label: "Barrel / DC-in", chip: "Barrel/DC-in", face: "rear", box: [10.5, 44, 7, 14], ticket: "That's power on the WD19 — pull that one. 180W brick. Round jack. Not USB-C." },
-        { id: "wd19-upstream", kind: "usbc", label: "USB-C upstream (to laptop)", chip: "USB-C up", face: "front", box: [36, 46, 9, 12], ticket: "Thick cable, dock → Precision TB port. Charging and video ride this hop." },
-        { id: "wd19-dp1", kind: "video", label: "DP out (to monitor)", chip: "DP out", face: "rear", box: [30, 50, 9, 8], ticket: "DisplayPort out on the dock. Lands on monitor DP in." },
-        { id: "wd19-dp2", kind: "video", label: "DP out 2", chip: "DP 2", face: "rear", box: [30, 40, 9, 8], ticket: "Second DP. Dual-display desks use this plus DP 1 or HDMI." },
-        { id: "wd19-hdmi", kind: "video", label: "HDMI out (to monitor)", chip: "HDMI out", face: "rear", box: [42, 47, 9, 9], ticket: "HDMI out on the dock. Match the monitor HDMI in and the monitor source." },
-        { id: "wd19-rj45", kind: "net", label: "RJ45", chip: "RJ45", face: "rear", box: [54, 44, 8, 13], ticket: "Dock NIC. Confirm the drop is here if the ticket is 'no LAN on dock'." },
-        { id: "wd19-usbc", kind: "usbc", label: "USB-C downstream", chip: "USB-C down", face: "rear", box: [21.5, 47, 6, 9], ticket: "Peripherals only. Will not power the dock or the laptop." },
-        { id: "wd19-usba", kind: "usb", label: "USB-A", chip: "USB-A", face: "rear", box: [69, 40, 9, 18], ticket: "Keyboard / mouse / keys on the dock." },
-        { id: "wd19-audio", kind: "audio", label: "3.5 mm", chip: "3.5 mm", face: "rear", box: [74, 46, 6, 10], ticket: "Dock analog audio." }
+        { id: "wd19-dc", kind: "power", label: "Barrel / DC-in", chip: "Barrel/DC-in", face: "rear", box: [73.4, 73.8, 4.2, 6.8], ticket: "That's power on the WD19 — pull that one. 180W brick. Round jack, far right on the back. Not USB-C." },
+        { id: "wd19-upstream", kind: "usbc", label: "USB-C upstream (to laptop)", chip: "USB-C up", face: "front", box: [35.8, 72.6, 5.8, 6.6], ticket: "Front USB-C. Thick cable, dock → Precision TB port. Charging and video ride this hop." },
+        { id: "wd19-dp1", kind: "video", label: "DP out (to monitor)", chip: "DP out", face: "rear", box: [19.8, 74.0, 6.6, 6.6], ticket: "DisplayPort out on the dock. Lands on monitor HDMI / USB-C IN if that desk has no DP." },
+        { id: "wd19-dp2", kind: "video", label: "DP out 2", chip: "DP 2", face: "rear", box: [27.6, 74.0, 6.6, 6.6], ticket: "Second DP. Dual-display desks use this plus DP 1 or HDMI." },
+        { id: "wd19-hdmi", kind: "video", label: "HDMI out (to monitor)", chip: "HDMI out", face: "rear", box: [36.2, 74.0, 7.4, 6.6], ticket: "HDMI out on the dock. Match HDMI 1 or HDMI 2 on the monitor and the OSD source." },
+        { id: "wd19-rj45", kind: "net", label: "RJ45", chip: "RJ45", face: "rear", box: [67.2, 73.2, 5.6, 7.4], ticket: "Dock NIC. Confirm the drop is here if the ticket is 'no LAN on dock'." },
+        { id: "wd19-usbc", kind: "usbc", label: "USB-C downstream", chip: "USB-C down", face: "rear", box: [46.6, 74.8, 4.8, 5.8], ticket: "Rear USB-C + DP. Peripherals / extra display. Will not power the dock or the laptop." },
+        { id: "wd19-usba", kind: "usb", label: "USB-A", chip: "USB-A", face: "rear", box: [52.4, 73.2, 8.6, 7.8], ticket: "Keyboard / mouse / keys on the dock." },
+        { id: "wd19-audio", kind: "audio", label: "3.5 mm", chip: "3.5 mm", face: "rear", box: [14.8, 74.8, 3.0, 5.6], ticket: "Dock analog audio. Far left on the back." }
       ]
     },
     monitor: {
       id: "monitor",
-      name: "Dell monitor",
+      name: "Dell S3423DWC",
       short: "Monitor",
-      role: "External display. Video is an IN. Power is IEC AC.",
+      role: "34-inch curved. Video IN is HDMI 1 / HDMI 2 / USB-C DP. Power is IEC AC.",
       picker: "Monitor",
       defaultFace: "rear",
       faces: [
         { id: "rear", label: "Back", file: "monitor-rear.png" }
       ],
       ports: [
-        { id: "mon-ac", kind: "power", label: "IEC AC in", chip: "IEC AC", face: "rear", box: [18, 36, 14, 22], ticket: "Monitor power cord. Confirm the rocker / soft-power and the OSD is not in standby." },
-        { id: "mon-dp", kind: "video", label: "DP in", chip: "DP in", face: "rear", box: [38, 40, 10, 16], ticket: "DisplayPort in. Must match a DP out on the WD19 or the OptiPlex." },
-        { id: "mon-hdmi", kind: "video", label: "HDMI in", chip: "HDMI in", face: "rear", box: [50, 40, 11, 16], ticket: "HDMI in. Set OSD source to HDMI if that is the cable in use." },
-        { id: "mon-usbc", kind: "usbc", label: "USB-C (video + power)", chip: "USB-C", face: "rear", box: [64, 42, 9, 14], ticket: "USB-C video on some P-series. Not the WD19 upstream." },
-        { id: "mon-usbb", kind: "usb", label: "USB-B upstream", ticket: "Legacy hub uplink to the PC. Needed only if hub ports on the monitor are dead." },
-        { id: "mon-usba", kind: "usb", label: "USB-A downstream", ticket: "Monitor hub ports. They stay dead until USB-B / USB-C uplink is seated." }
+        { id: "mon-ac", kind: "power", label: "IEC AC in", chip: "IEC AC", face: "rear", box: [5.4, 45.2, 12.2, 8.6], ticket: "Monitor power cord. Confirm the rocker / soft-power and the OSD is not in standby." },
+        { id: "mon-hdmi", kind: "video", label: "HDMI 1 in", chip: "HDMI 1", face: "rear", box: [25.0, 45.4, 9.2, 8.2], ticket: "HDMI 1 in. Set OSD source to HDMI 1 if that is the cable in use." },
+        { id: "mon-hdmi2", kind: "video", label: "HDMI 2 in", chip: "HDMI 2", face: "rear", box: [58.6, 45.4, 6.4, 8.2], ticket: "HDMI 2 in. Same cable type from the WD19 HDMI out. OSD source = HDMI 2." },
+        { id: "mon-usbc", kind: "usbc", label: "USB-C (DP / PD)", chip: "USB-C DP/PD", face: "rear", box: [65.6, 46.0, 4.4, 7.8], ticket: "USB-C IN with DP Alt Mode and PD. Video + laptop charge on some desks. Not the WD19 upstream." },
+        { id: "mon-dp", kind: "video", label: "DP in", ticket: "This S3423DWC has no DP in. Use HDMI 1, HDMI 2, or USB-C DP." },
+        { id: "mon-usbb", kind: "usb", label: "USB-B upstream", ticket: "Hub uplink to the PC. Needed only if the monitor USB-A ports are dead." },
+        { id: "mon-usba", kind: "usb", label: "USB-A downstream", chip: "USB-A", face: "rear", box: [73.6, 45.4, 13.0, 8.4], ticket: "Monitor hub ports. They stay dead until USB-B / USB-C uplink is seated." }
       ]
     },
     ups: {
       id: "ups",
-      name: "UPS",
+      name: "APC Back-UPS XS 1000",
       short: "UPS",
-      role: "Battery backup under the desk. Switch + battery-backed outlets first.",
+      role: "Battery backup under the desk. Front switch, then rear BATTERY BACKUP outlets — not surge-only.",
       picker: "UPS",
       defaultFace: "front",
       faces: [
-        { id: "front", label: "Front", file: "ups-front.png" }
+        { id: "front", label: "Front", file: "ups-front.png" },
+        { id: "rear", label: "Back", file: "ups-rear.png" }
       ],
       ports: [
-        { id: "ups-acin", kind: "power", label: "AC in (wall)", ticket: "UPS line cord to the wall. If the wall is dead, the UPS is a battery with a clock." },
-        { id: "ups-switch", kind: "power", label: "Power switch", chip: "Switch", face: "front", box: [12, 20, 8, 12], ticket: "Master switch. Many units sit in standby with no output until this is on." },
-        { id: "ups-out-batt", kind: "power", label: "AC out (battery-backed)", chip: "Battery-backed", face: "front", box: [18, 50, 40, 34], ticket: "Battery-backed bank. Tower PSU and WD19 brick go here." },
-        { id: "ups-out-dock", kind: "power", label: "AC out (dock brick)", chip: "Dock brick", face: "front", box: [58, 50, 24, 34], ticket: "Second battery-backed outlet. WD19 180W brick — not a surge-only tap." },
-        { id: "ups-out-surge", kind: "power", label: "AC out (surge-only)", ticket: "Surge-only. Do not park the tower or the dock brick here." },
+        { id: "ups-acin", kind: "power", label: "AC in (wall)", chip: "Wall cord", face: "rear", box: [20.0, 80.0, 11.0, 10.0], ticket: "UPS line cord to the wall. If the wall is dead, the UPS is a battery with a clock." },
+        { id: "ups-switch", kind: "power", label: "Power switch", chip: "Switch", face: "front", box: [42.0, 30.0, 3.2, 5.0], ticket: "Front power button. Many units sit in standby with no output until this is on." },
+        { id: "ups-out-batt", kind: "power", label: "AC out (battery-backed)", chip: "Battery Backup", face: "rear", box: [47.2, 50.8, 4.6, 14.2], ticket: "Rear BATTERY BACKUP bank. OptiPlex brick and WD19 brick go here — not the surge-only row." },
+        { id: "ups-out-dock", kind: "power", label: "AC out (dock brick)", chip: "Dock brick", face: "rear", box: [47.2, 56.0, 4.6, 9.0], ticket: "Same battery-backed bank. WD19 180W brick — not a surge-only tap." },
+        { id: "ups-out-surge", kind: "power", label: "AC out (surge-only)", chip: "Surge only", face: "rear", box: [47.2, 42.4, 4.6, 8.6], ticket: "SURGE ONLY row. Do not park the Micro brick or the dock brick here." },
         { id: "ups-usb", kind: "usb", label: "USB-B management", ticket: "Optional NUT / vendor agent. Not required for AC output." }
       ]
     }
@@ -155,16 +159,16 @@
       fallbackDevice: "monitor",
       port: "wd19-dp1",
       face: "rear",
-      ports: ["wd19-dp1", "wd19-hdmi", "mon-dp", "mon-hdmi", "prec-hdmi", "opti-dp"],
+      ports: ["wd19-dp1", "wd19-hdmi", "mon-hdmi", "mon-hdmi2", "mon-usbc", "opti-dp", "prec-tb1"],
       cables: ["dock-dp", "dock-hdmi"],
-      coach: "Video leaves the dock. Trace DP or HDMI from WD19 out to the monitor IN. Set the monitor source to match.",
-      ask: "Ask: which cable is in the monitor — DP or HDMI? What does the OSD source say?",
+      coach: "Video leaves the dock. Trace DP or HDMI from WD19 out to the monitor IN — HDMI 1, HDMI 2, or USB-C DP. Set the OSD source to match.",
+      ask: "Ask: which jack is in the monitor — HDMI 1, HDMI 2, or USB-C? What does the OSD source say?",
       steps: [
         "Confirm the WD19 has power (LED). A dark dock will not drive the panel.",
         "On the WD19: DP out or HDMI out — say the label, have them touch that jack.",
-        "Same cable type on the monitor IN (DP in or HDMI in).",
+        "Same cable on the monitor IN: HDMI 1, HDMI 2, or USB-C DP/PD. This S3423DWC has no DP in.",
         "OSD source = the cable in use. Auto is often wrong.",
-        "Bypass: Precision HDMI or OptiPlex DP straight to the monitor if the dock path fails."
+        "Bypass: Precision TB4 / right USB-C or OptiPlex DP straight to the monitor if the dock path fails."
       ]
     },
     {
@@ -181,8 +185,8 @@
       ask: "Ask: does the laptop charge on its own brick? Is the WD19 LED on?",
       steps: [
         "WD19 brick must be in barrel/DC-in. No brick, no charge pass-through.",
-        "USB-C upstream is the thick cable: dock → Precision USB-C / TB.",
-        "Pull both ends. Reseat. Try the other TB port on the Precision.",
+        "USB-C upstream is the front USB-C: dock → Precision left TB4.",
+        "Pull both ends. Reseat. Try the other left TB4 on the Precision.",
         "If it charges on the slim chassis brick but not the dock, replace the upstream cable first."
       ]
     },
@@ -196,13 +200,13 @@
       face: "front",
       ports: ["ups-switch", "ups-out-batt", "ups-out-dock", "opti-ac", "wd19-dc"],
       cables: ["ups-tower", "ups-dock"],
-      coach: "Whole desk dark. UPS switch first. Tower and dock brick go in battery-backed outlets, not surge-only.",
-      ask: "Ask: is the UPS display/LED on? Are the tower and the fat brick in the battery bank?",
+      coach: "Whole desk dark. UPS front switch first. Then rear BATTERY BACKUP outlets — not the surge-only row.",
+      ask: "Ask: is the UPS LED on? Are the Micro brick and the fat WD19 brick in the battery bank?",
       steps: [
         "UPS power switch — on, not standby.",
         "AC in (wall) seated. If the wall is dead, say so on the ticket and stop.",
-        "Move OptiPlex IEC C13 and the WD19 brick onto battery-backed AC out.",
-        "Do not leave those two on surge-only taps.",
+        "Move the OptiPlex brick and the WD19 brick onto rear BATTERY BACKUP outlets.",
+        "Do not leave those two on the SURGE ONLY row.",
         "Then re-run dock-power or no-display if only one box stayed dark."
       ]
     }

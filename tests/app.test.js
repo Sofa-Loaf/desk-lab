@@ -59,6 +59,89 @@ test("playbook coach lands on a real photo hotspot", () => {
   });
 });
 
+test("real-photo hotspots sit on the jacks the playbooks name", () => {
+  const wd19 = DeskLab.DEVICES.wd19;
+  const dc = wd19.ports.find((port) => port.id === "wd19-dc");
+  const up = wd19.ports.find((port) => port.id === "wd19-upstream");
+  assert.equal(dc.face, "rear");
+  assert.ok(dc.box[0] > 70, "WD19 barrel is far right on the rear photo");
+  assert.equal(up.face, "front");
+  assert.ok(up.box[0] > 30 && up.box[0] < 45, "WD19 upstream is the front USB-C");
+
+  const prec = DeskLab.DEVICES.precision;
+  const tb1 = prec.ports.find((port) => port.id === "prec-tb1");
+  const tb2 = prec.ports.find((port) => port.id === "prec-tb2");
+  const precUsbc = prec.ports.find((port) => port.id === "prec-usbc");
+  assert.equal(tb1.face, "left");
+  assert.equal(tb2.face, "left");
+  assert.ok(tb1.box[0] < tb2.box[0], "both TB4 ports are on the left, tb1 then tb2");
+  assert.ok(tb1.box[0] > 14 && tb1.box[0] < 16, "first TB4 is the left USB-C, not the wedge lock");
+  assert.ok(tb2.box[0] > 20 && tb2.box[0] < 22, "second TB4 is the second left USB-C");
+  assert.equal(precUsbc.face, "right");
+  assert.ok(precUsbc.box[0] > 68 && precUsbc.box[0] < 71, "right USB-C sits before the SD slot");
+
+  const mon = DeskLab.DEVICES.monitor;
+  const monAc = mon.ports.find((port) => port.id === "mon-ac");
+  const monHdmi = mon.ports.find((port) => port.id === "mon-hdmi");
+  const monHdmi2 = mon.ports.find((port) => port.id === "mon-hdmi2");
+  const monUsbc = mon.ports.find((port) => port.id === "mon-usbc");
+  for (const port of [monAc, monHdmi, monHdmi2, monUsbc]) {
+    assert.equal(port.face, "rear");
+    assert.equal(port.box.length, 4);
+  }
+  assert.match(monHdmi.label, /HDMI 1/);
+  assert.match(monUsbc.label, /USB-C/);
+  assert.ok(monAc.box[0] < 8, "IEC AC is the far-left inlet on the Commons bay");
+  assert.ok(monHdmi.box[0] > 24 && monHdmi.box[0] < 28, "HDMI 1 is the isolated jack left of center");
+  assert.ok(monHdmi2.box[0] > 57 && monHdmi2.box[0] < 61, "HDMI 2 is the left jack of the right cluster");
+  assert.ok(monUsbc.box[0] > monHdmi2.box[0] + monHdmi2.box[2] - 1, "USB-C DP/PD is immediately right of HDMI 2");
+  assert.ok(monUsbc.box[0] < 68, "USB-C is not the audio jack or USB-A");
+
+  const ups = DeskLab.DEVICES.ups;
+  assert.ok(ups.faces.some((face) => face.id === "rear" && face.file === "ups-rear.png"));
+  const batt = ups.ports.find((port) => port.id === "ups-out-batt");
+  const surge = ups.ports.find((port) => port.id === "ups-out-surge");
+  assert.equal(batt.face, "rear");
+  assert.equal(surge.face, "rear");
+  assert.ok(batt.box[1] > surge.box[1], "battery-backed bank is below surge-only on the rear photo");
+});
+
+test("no-display without a dock lands on monitor HDMI 1", () => {
+  const present = DeskLab.normalizePresent({
+    optiplex: false,
+    precision: false,
+    wd19: false,
+    monitor: true,
+    ups: false
+  });
+  const playbook = DeskLab.playbookById("no-display");
+  assert.equal(DeskLab.resolvePlaybookDevice(playbook, present), "monitor");
+  assert.equal(DeskLab.resolvePlaybookPort(playbook, present), "mon-hdmi");
+  assert.equal(DeskLab.resolvePlaybookFace(playbook, present), "rear");
+});
+
+test("product photos are committed next to the hotspots", () => {
+  const fs = require("node:fs");
+  const path = require("node:path");
+  const dir = path.join(__dirname, "..", "assets", "desk-lab");
+  const files = [
+    "wd19-front.png",
+    "wd19-rear.png",
+    "optiplex-front.png",
+    "optiplex-rear.png",
+    "precision-left.png",
+    "precision-right.png",
+    "monitor-rear.png",
+    "ups-front.png",
+    "ups-rear.png"
+  ];
+  files.forEach((file) => {
+    const full = path.join(dir, file);
+    assert.ok(fs.existsSync(full), file);
+    assert.ok(fs.statSync(full).size > 20000, file + " should be a real photo");
+  });
+});
+
 test("hash round-trips desk + playbook", () => {
   const hash = DeskLab.buildHash({
     present: { optiplex: false, precision: true, wd19: true, monitor: true, ups: false },
