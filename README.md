@@ -6,7 +6,7 @@ ICP: MSP techs on remote or onsite calls. Client has some mix of OptiPlex, Preci
 
 Toggle **what’s on this client’s desk**. Click a box. Ports are ticket labels: barrel/DC-in, USB-C upstream, DP out, UPS AC out. Playbooks are the script — you read, they touch the jack.
 
-- No power on dock → WD19 barrel/DC-in (the brick, not USB-C)
+- No power on dock → WD19 barrel/DC-in (the brick, not USB-C). Coach: “That’s power on the WD19 — pull that one.”
 - No display → DP/HDMI from dock to monitor IN
 - Laptop not charging on dock → USB-C upstream
 - Dead desk → UPS switch + battery-backed outlets

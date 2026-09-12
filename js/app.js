@@ -59,7 +59,7 @@
       role: "Dell WD19 / WD19TBS. Brick on barrel/DC-in. Laptop on USB-C upstream.",
       picker: "WD19",
       ports: [
-        { id: "wd19-dc", kind: "power", label: "Barrel / DC-in", ticket: "180W brick. Round jack. Not USB-C. Pull, wait 10s, reseat until seated." },
+        { id: "wd19-dc", kind: "power", label: "Barrel / DC-in", ticket: "That's power on the WD19 — pull that one. 180W brick. Round jack. Not USB-C." },
         { id: "wd19-upstream", kind: "usbc", label: "USB-C upstream (to laptop)", ticket: "Thick cable, dock → Precision TB port. Charging and video ride this hop." },
         { id: "wd19-dp1", kind: "video", label: "DP out (to monitor)", ticket: "DisplayPort out on the dock. Lands on monitor DP in." },
         { id: "wd19-dp2", kind: "video", label: "DP out 2", ticket: "Second DP. Dual-display desks use this plus DP 1 or HDMI." },
@@ -112,9 +112,10 @@
       port: "wd19-dc",
       ports: ["wd19-dc"],
       cables: ["dock-brick"],
-      coach: "WD19 is dark. Pull the barrel/DC-in — the brick, not USB-C. Wait 10s. Reseat.",
+      coach: "That's power on the WD19 — pull that one. Barrel/DC-in — the brick, not USB-C. Wait 10s. Reseat.",
       ask: "Ask: is the brick LED on? Are they holding the USB-C cable or the round jack?",
       steps: [
+        "That's power on the WD19 — pull that one.",
         "Confirm the 180W brick LED is lit.",
         "Trace that cable to the WD19 barrel/DC-in (round jack, not USB-C).",
         "Pull the barrel. Wait 10 seconds. Reseat until it is fully home.",
