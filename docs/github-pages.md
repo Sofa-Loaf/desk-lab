@@ -4,21 +4,24 @@ Desk Lab is a static site: `index.html`, `css/`, and `js/` at the repository roo
 
 ## Enable Pages
 
+Fastest path (no Actions required):
+
 1. Open the repo **Settings → Pages**.
-2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-3. Merge this workflow (`.github/workflows/pages.yml`) to the default branch.
+2. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
+3. Branch: `main`. Folder: `/ (root)`.
 4. The site publishes at `https://sofa-loaf.github.io/desk-lab/`.
 
-If Pages is not enabled, the deploy job will not have an environment to write to. The call sheet still works by opening `index.html` through a local static server or the 28to3 mirror: [28to3.me/apps/desk-lab.html](https://28to3.me/apps/desk-lab.html).
+An Actions workflow is optional. This token cannot write `.github/workflows/*`. If you add one later, use Settings → Pages → Source: GitHub Actions.
 
-## What the workflow uploads
+If Pages is not enabled, the call sheet still works by opening `index.html` through a local static server or the 28to3 mirror: [28to3.me/apps/desk-lab.html](https://28to3.me/apps/desk-lab.html).
 
-Only the files needed to run the lab:
+## What to publish
 
 - `index.html`
 - `css/`
 - `js/`
 - `LICENSE`
 - `README.md`
+- `.nojekyll`
 
 No backend, no tokens in the page, no account flow, no Stripe.
