@@ -46,7 +46,7 @@ test("playbook coach lands on a real photo hotspot", () => {
   const cases = [
     ["dock-power", "wd19-dc", "rear"],
     ["no-display", "wd19-dp1", "rear"],
-    ["no-charge", "wd19-upstream", "rear"],
+    ["no-charge", "wd19-upstream", "front"],
     ["dead-desk", "ups-switch", "front"]
   ];
   cases.forEach(([id, portId, face]) => {
