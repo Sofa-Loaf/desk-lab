@@ -24,6 +24,7 @@ test("picker hides playbooks that need missing gear", () => {
 test("dock-power playbook points at WD19 barrel/DC-in", () => {
   const playbook = DeskLab.playbookById("dock-power");
   assert.equal(playbook.port, "wd19-dc");
+  assert.match(playbook.coach, /that'?s power on the WD19 — pull that one/i);
   assert.match(playbook.coach, /barrel\/DC-in/i);
   assert.equal(DeskLab.resolvePlaybookPort(playbook, DeskLab.defaultPresent()), "wd19-dc");
 });
