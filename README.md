@@ -15,7 +15,7 @@ No account. No backend. No Stripe. Labels beat photorealism.
 
 **Live (28to3 mirror):** https://28to3.me/apps/desk-lab.html
 
-**GitHub Pages:** https://sofa-loaf.github.io/desk-lab/ (after Pages is enabled — see [docs/github-pages.md](docs/github-pages.md))
+**GitHub Pages:** https://sofa-loaf.github.io/desk-lab/ after Settings → Pages → Deploy from a branch → `main` / root. Details: [docs/github-pages.md](docs/github-pages.md).
 
 ## How to use
 
@@ -38,7 +38,7 @@ No build step. No npm install. Do not invent Stripe for this tool.
 
 ## GitHub Pages
 
-Static from the root (`index.html`). Workflow: `.github/workflows/pages.yml`. Enable Pages (Settings → Pages → GitHub Actions). Details: [docs/github-pages.md](docs/github-pages.md).
+Static from the root (`index.html`). Enable Pages with **Deploy from a branch** (`main`, `/ root`). Details: [docs/github-pages.md](docs/github-pages.md).
 
 ## Develop / test
 
