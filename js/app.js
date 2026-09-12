@@ -76,12 +76,12 @@
         { id: "rear", label: "Back", file: "wd19-rear.png" }
       ],
       ports: [
-        { id: "wd19-dc", kind: "power", label: "Barrel / DC-in", chip: "Barrel/DC-in", face: "rear", box: [70.0, 74.2, 4.6, 6.6], ticket: "That's power on the WD19 — pull that one. 180W brick. Round jack, far right on the back. Not USB-C." },
+        { id: "wd19-dc", kind: "power", label: "Barrel / DC-in", chip: "Barrel/DC-in", face: "rear", box: [73.4, 73.8, 4.2, 6.8], ticket: "That's power on the WD19 — pull that one. 180W brick. Round jack, far right on the back. Not USB-C." },
         { id: "wd19-upstream", kind: "usbc", label: "USB-C upstream (to laptop)", chip: "USB-C up", face: "front", box: [35.8, 72.6, 5.8, 6.6], ticket: "Front USB-C. Thick cable, dock → Precision TB port. Charging and video ride this hop." },
         { id: "wd19-dp1", kind: "video", label: "DP out (to monitor)", chip: "DP out", face: "rear", box: [19.8, 74.0, 6.6, 6.6], ticket: "DisplayPort out on the dock. Lands on monitor HDMI / USB-C IN if that desk has no DP." },
         { id: "wd19-dp2", kind: "video", label: "DP out 2", chip: "DP 2", face: "rear", box: [27.6, 74.0, 6.6, 6.6], ticket: "Second DP. Dual-display desks use this plus DP 1 or HDMI." },
         { id: "wd19-hdmi", kind: "video", label: "HDMI out (to monitor)", chip: "HDMI out", face: "rear", box: [36.2, 74.0, 7.4, 6.6], ticket: "HDMI out on the dock. Match HDMI 1 or HDMI 2 on the monitor and the OSD source." },
-        { id: "wd19-rj45", kind: "net", label: "RJ45", chip: "RJ45", face: "rear", box: [61.4, 73.4, 6.4, 7.6], ticket: "Dock NIC. Confirm the drop is here if the ticket is 'no LAN on dock'." },
+        { id: "wd19-rj45", kind: "net", label: "RJ45", chip: "RJ45", face: "rear", box: [67.2, 73.2, 5.6, 7.4], ticket: "Dock NIC. Confirm the drop is here if the ticket is 'no LAN on dock'." },
         { id: "wd19-usbc", kind: "usbc", label: "USB-C downstream", chip: "USB-C down", face: "rear", box: [46.6, 74.8, 4.8, 5.8], ticket: "Rear USB-C + DP. Peripherals / extra display. Will not power the dock or the laptop." },
         { id: "wd19-usba", kind: "usb", label: "USB-A", chip: "USB-A", face: "rear", box: [52.4, 73.2, 8.6, 7.8], ticket: "Keyboard / mouse / keys on the dock." },
         { id: "wd19-audio", kind: "audio", label: "3.5 mm", chip: "3.5 mm", face: "rear", box: [14.8, 74.8, 3.0, 5.6], ticket: "Dock analog audio. Far left on the back." }
@@ -119,11 +119,11 @@
         { id: "rear", label: "Back", file: "ups-rear.png" }
       ],
       ports: [
-        { id: "ups-acin", kind: "power", label: "AC in (wall)", chip: "Wall cord", face: "rear", box: [17.0, 81.0, 12.0, 10.0], ticket: "UPS line cord to the wall. If the wall is dead, the UPS is a battery with a clock." },
-        { id: "ups-switch", kind: "power", label: "Power switch", chip: "Switch", face: "front", box: [38.6, 30.4, 4.0, 5.6], ticket: "Front power button. Many units sit in standby with no output until this is on." },
-        { id: "ups-out-batt", kind: "power", label: "AC out (battery-backed)", chip: "Battery Backup", face: "rear", box: [38.2, 53.0, 6.8, 14.2], ticket: "Rear BATTERY BACKUP bank. OptiPlex brick and WD19 brick go here — not the surge-only row." },
-        { id: "ups-out-dock", kind: "power", label: "AC out (dock brick)", chip: "Dock brick", face: "rear", box: [38.2, 58.0, 6.8, 9.0], ticket: "Same battery-backed bank. WD19 180W brick — not a surge-only tap." },
-        { id: "ups-out-surge", kind: "power", label: "AC out (surge-only)", chip: "Surge only", face: "rear", box: [38.2, 43.4, 6.8, 9.6], ticket: "SURGE ONLY row. Do not park the Micro brick or the dock brick here." },
+        { id: "ups-acin", kind: "power", label: "AC in (wall)", chip: "Wall cord", face: "rear", box: [20.0, 80.0, 11.0, 10.0], ticket: "UPS line cord to the wall. If the wall is dead, the UPS is a battery with a clock." },
+        { id: "ups-switch", kind: "power", label: "Power switch", chip: "Switch", face: "front", box: [42.0, 30.0, 3.2, 5.0], ticket: "Front power button. Many units sit in standby with no output until this is on." },
+        { id: "ups-out-batt", kind: "power", label: "AC out (battery-backed)", chip: "Battery Backup", face: "rear", box: [47.2, 50.8, 4.6, 14.2], ticket: "Rear BATTERY BACKUP bank. OptiPlex brick and WD19 brick go here — not the surge-only row." },
+        { id: "ups-out-dock", kind: "power", label: "AC out (dock brick)", chip: "Dock brick", face: "rear", box: [47.2, 56.0, 4.6, 9.0], ticket: "Same battery-backed bank. WD19 180W brick — not a surge-only tap." },
+        { id: "ups-out-surge", kind: "power", label: "AC out (surge-only)", chip: "Surge only", face: "rear", box: [47.2, 42.4, 4.6, 8.6], ticket: "SURGE ONLY row. Do not park the Micro brick or the dock brick here." },
         { id: "ups-usb", kind: "usb", label: "USB-B management", ticket: "Optional NUT / vendor agent. Not required for AC output." }
       ]
     }

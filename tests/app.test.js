@@ -64,7 +64,7 @@ test("real-photo hotspots sit on the jacks the playbooks name", () => {
   const dc = wd19.ports.find((port) => port.id === "wd19-dc");
   const up = wd19.ports.find((port) => port.id === "wd19-upstream");
   assert.equal(dc.face, "rear");
-  assert.ok(dc.box[0] > 60, "WD19 barrel is far right on the rear photo");
+  assert.ok(dc.box[0] > 70, "WD19 barrel is far right on the rear photo");
   assert.equal(up.face, "front");
   assert.ok(up.box[0] > 30 && up.box[0] < 45, "WD19 upstream is the front USB-C");
 
